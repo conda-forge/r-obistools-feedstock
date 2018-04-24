@@ -12,7 +12,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [win32]
+  skip: True  # [win]
   script: R CMD INSTALL --build .
   rpaths:
     - lib/R/lib/
@@ -31,8 +31,7 @@ requirements:
     - r-jsonlite
     - r-leaflet
     - r-raster
-    # We don't have r-rgdal but defaults r-sf is a repackage and may bundle it.
-    - r-rgdal  # [not win]
+    - r-rgdal
     - r-rgeos
     - r-rmarkdown
     - r-sf
@@ -56,8 +55,7 @@ requirements:
     - r-jsonlite
     - r-leaflet
     - r-raster
-    # We don't have r-rgdal but defaults r-sf is a repackage and may bundle it.
-    - r-rgdal  # [not win]
+    - r-rgdal
     - r-rgeos
     - r-rmarkdown
     - r-sf
