@@ -1,4 +1,5 @@
-{% set version = '0.0.5' %}
+{% set version = '0.0.5.9001' %}
+{% set commit = "025e0a36d84a1b879eb68d4f27ea1211403ec9e9" %}
 
 package:
   name: r-obistools
@@ -6,8 +7,8 @@ package:
 
 source:
   fn: obistools_{{ version }}.zip
-  url: https://github.com/iobis/obistools/archive/master.zip
-  sha256: a9324dbfb6ce52340b5beb805069f0ee245dfbe3bbc8cda665cfbf6bccef22e4
+  url: https://github.com/iobis/obistools/archive/{{ commit }}.zip
+  sha256: fccdbd00c95236408235bd55a785e96f5a7345da0aed8562412943a232ff0c90
 
 build:
   number: 0
@@ -20,6 +21,7 @@ build:
 requirements:
   build:
     - r-base
+    - r-cowplot
     - r-data.tree
     - r-digest
     - r-dplyr
@@ -37,13 +39,13 @@ requirements:
     - r-stringr
     - r-tidyr
     - r-worrms
-    # - r-grid
     - r-xml2
     - r-rappdirs
     - r-maps
     - r-knitr
   run:
     - r-base
+    - r-cowplot
     - r-data.tree
     - r-digest
     - r-dplyr
@@ -61,7 +63,6 @@ requirements:
     - r-stringr
     - r-tidyr
     - r-worrms
-    # - r-grid
     - r-xml2
     - r-rappdirs
     - r-maps
