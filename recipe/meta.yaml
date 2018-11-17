@@ -1,4 +1,4 @@
-{% set version = '0.0.5.9001' %}
+{% set version = "0.0.6" %}
 {% set commit = "025e0a36d84a1b879eb68d4f27ea1211403ec9e9" %}
 
 package:
