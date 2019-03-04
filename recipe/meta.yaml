@@ -7,9 +7,8 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-
-  git_url: https://github.com/iobis/obistools
-  git_tag: v0.0.8
+  url: https://github.com/iobis/obistools/archive/v{{ version }}.tar.gz
+  sh256: ea7656717d36e936c2c64810e13f1c59cfaef5ba5feb367b2dc2e42828541029
 
 build:
   merge_build_host: True  # [win]
