@@ -18,9 +18,8 @@ Summary: Prepare data sets for submission to the Ocean Biogeographical Informati
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-obistools-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-obistools-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-obistools-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-obistools-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-obistools-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-obistools-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-obistools-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-obistools-feedstock)
 
 Current release info
 ====================
