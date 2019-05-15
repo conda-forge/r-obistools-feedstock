@@ -1,18 +1,19 @@
-{% set version = '0.0.5.9001' %}
-{% set commit = "025e0a36d84a1b879eb68d4f27ea1211403ec9e9" %}
+{% set version = '0.0.8' %}
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-obistools
-  version: {{ version }}
+  version: {{ version|replace("-", "_") }}
 
 source:
-  fn: obistools_{{ version }}.zip
-  url: https://github.com/iobis/obistools/archive/{{ commit }}.zip
-  sha256: fccdbd00c95236408235bd55a785e96f5a7345da0aed8562412943a232ff0c90
+  url: https://github.com/iobis/obistools/archive/v{{ version }}.tar.gz
+  sha256: ea7656717d36e936c2c64810e13f1c59cfaef5ba5feb367b2dc2e42828541029
 
 build:
+  merge_build_host: True  # [win]
   number: 0
-  skip: True  # [win]
+  noarch: generic
   script: R CMD INSTALL --build .
   rpaths:
     - lib/R/lib/
@@ -20,6 +21,10 @@ build:
 
 requirements:
   build:
+    - {{posix}}filesystem        # [win]
+    - {{posix}}git
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-cowplot
     - r-data.tree
@@ -29,7 +34,10 @@ requirements:
     - r-ggplot2
     - r-httr
     - r-jsonlite
+    - r-knitr
     - r-leaflet
+    - r-maps
+    - r-rappdirs
     - r-raster
     - r-rgdal
     - r-rgeos
@@ -40,9 +48,7 @@ requirements:
     - r-tidyr
     - r-worrms
     - r-xml2
-    - r-rappdirs
-    - r-maps
-    - r-knitr
+
   run:
     - r-base
     - r-cowplot
@@ -53,7 +59,10 @@ requirements:
     - r-ggplot2
     - r-httr
     - r-jsonlite
+    - r-knitr
     - r-leaflet
+    - r-maps
+    - r-rappdirs
     - r-raster
     - r-rgdal
     - r-rgeos
@@ -64,21 +73,36 @@ requirements:
     - r-tidyr
     - r-worrms
     - r-xml2
-    - r-rappdirs
-    - r-maps
-    - r-knitr
 
 test:
   commands:
-    - $R -e "library('obistools')"  # [not win]
+    - $R -e "library('obistools')"           # [not win]
     - "\"%R%\" -e \"library('obistools')\""  # [win]
 
 about:
   home: https://github.com/iobis/obistools
+  summary: Prepare data sets for submission to the Ocean Biogeographical Information System (<http://iobis.org>).
+    It can also be used for checking the quality of a set of marine species distribution
+    records.
   license: MIT
+  license_family: MIT
   license_file: LICENSE
-  summary: Data Enhancement and Quality Control of Marine Species Observations
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - ocefpaf
+
+# Package: obistools
+# Title: Data Enhancement and Quality Control of Marine Species Observations
+# Description: Prepare data sets for submission to the Ocean Biogeographical Information System (<http://iobis.org>). It can also be used for checking the quality of a set of marine species distribution records.
+# Version: 0.0.8
+# Date: 2019-01-15
+# Authors@R: c( person("Pieter", "Provoost", , "pieterprovoost@gmail.com", role = c("cre", "aut")), person("Samuel", "Bosch", , "mail@samuelbosch.com", role = "aut"), person("Ward", "Appeltans", role = "ctb"), person(, "OBIS", , "support@iobis.org", role = "cph") )
+# Depends: R (>= 3.2.2)
+# License: MIT + file LICENSE
+# Encoding: UTF-8
+# LazyData: true
+# Imports: cowplot, data.tree, digest, dplyr, geosphere, ggplot2, httr, jsonlite, leaflet, raster, rgdal, rgeos, rmarkdown, sf, sp, stringr, tidyr, worrms, xml2, rappdirs, maps, knitr
+# Suggests: testthat, finch, grid
+# RoxygenNote: 6.1.1
