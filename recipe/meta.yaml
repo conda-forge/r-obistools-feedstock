@@ -1,4 +1,4 @@
-{% set version = '0.0.8' %}
+{% set version = "0.0.9" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/iobis/obistools/archive/v{{ version }}.tar.gz
-  sha256: ea7656717d36e936c2c64810e13f1c59cfaef5ba5feb367b2dc2e42828541029
+  sha256: f6628c464ad18a8beba82d74ac349a5b29b9115ed414f43461e7fb3d0b72887b
 
 build:
   merge_build_host: True  # [win]
