@@ -1,11 +1,11 @@
-About r-obistools
-=================
+About r-obistools-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-obistools-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/iobis/obistools
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-obistools-feedstock/blob/main/LICENSE.txt)
 
 Summary: Prepare data sets for submission to the Ocean Biogeographical Information System (<http://iobis.org>). It can also be used for checking the quality of a set of marine species distribution records.
 

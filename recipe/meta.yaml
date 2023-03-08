@@ -9,10 +9,13 @@ package:
 source:
   url: https://github.com/iobis/obistools/archive/v{{ version }}.tar.gz
   sha256: 4844d0f71dde8e8fc423e54f219f76bccabfd71d94241fb846a7815bdc46780d
+  patches:
+    # https://github.com/iobis/obistools/pull/88
+    - backport_88.patch
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 2
   noarch: generic
   script: R CMD INSTALL --build .
   rpaths:
