@@ -1,4 +1,4 @@
-{% set version = "0.0.10" %}
+{% set version = "0.0.11" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://github.com/iobis/obistools/archive/v{{ version }}.tar.gz
-  sha256: 4844d0f71dde8e8fc423e54f219f76bccabfd71d94241fb846a7815bdc46780d
+  sha256: a592189c96a9041de1ed081ac98b9f3407cb90d8eb871f7546edb60df5e60070
   patches:
     # https://github.com/iobis/obistools/pull/88
     - backport_88.patch
 
 build:
   merge_build_host: true  # [win]
-  number: 3
+  number: 0
   noarch: generic
   script: R CMD INSTALL --build .
   rpaths:
