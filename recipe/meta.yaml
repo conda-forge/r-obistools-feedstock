@@ -9,9 +9,6 @@ package:
 source:
   url: https://github.com/iobis/obistools/archive/v{{ version }}.tar.gz
   sha256: a592189c96a9041de1ed081ac98b9f3407cb90d8eb871f7546edb60df5e60070
-  patches:
-    # https://github.com/iobis/obistools/pull/88
-    - backport_88.patch
 
 build:
   merge_build_host: true  # [win]
