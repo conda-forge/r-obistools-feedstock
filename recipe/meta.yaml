@@ -1,6 +1,5 @@
 {% set version = "0.1.0" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-obistools
@@ -11,8 +10,7 @@ source:
   sha256: 7260d7e8773492e82eda82ff0f3eddbf81474c78ce1a216163f1dd8e191fc3de
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   noarch: generic
   script: R CMD INSTALL --build .
   rpaths:
