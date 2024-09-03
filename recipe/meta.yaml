@@ -12,23 +12,21 @@ source:
 build:
   number: 1
   noarch: generic
-  script: R CMD INSTALL --build .
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ posix }}filesystem        # [win]
+    - {{ posix }}filesystem  # [win]
     - {{ posix }}git
-    - {{ posix }}zip               # [win]
+    - {{ posix }}zip         # [win]
   host:
     - r-base
     - r-cowplot
     - r-data.tree
     - r-digest
     - r-dplyr
-    - r-geosphere
     - r-ggplot2
     - r-httr
     - r-jsonlite
@@ -36,24 +34,19 @@ requirements:
     - r-leaflet
     - r-maps
     - r-rappdirs
-    - r-raster
-    - r-rgdal
-    - r-rgeos
     - r-rmarkdown
     - r-sf
-    - r-sp
     - r-stringr
+    - r-terra
     - r-tidyr
     - r-worrms
     - r-xml2
-
   run:
     - r-base
     - r-cowplot
     - r-data.tree
     - r-digest
     - r-dplyr
-    - r-geosphere
     - r-ggplot2
     - r-httr
     - r-jsonlite
@@ -61,13 +54,10 @@ requirements:
     - r-leaflet
     - r-maps
     - r-rappdirs
-    - r-raster
-    - r-rgdal
-    - r-rgeos
     - r-rmarkdown
     - r-sf
-    - r-sp
     - r-stringr
+    - r-terra
     - r-tidyr
     - r-worrms
     - r-xml2
@@ -82,23 +72,11 @@ about:
   summary: Prepare data sets for submission to the Ocean Biogeographical Information System (<http://iobis.org>). It can also be used for checking the quality of a set of marine species distribution records.
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - ocefpaf
-
-# Package: obistools
-# Title: Data Enhancement and Quality Control of Marine Species Observations
-# Description: Prepare data sets for submission to the Ocean Biogeographical Information System (<http://iobis.org>). It can also be used for checking the quality of a set of marine species distribution records.
-# Version: 0.0.8
-# Date: 2019-01-15
-# Authors@R: c( person("Pieter", "Provoost", , "pieterprovoost@gmail.com", role = c("cre", "aut")), person("Samuel", "Bosch", , "mail@samuelbosch.com", role = "aut"), person("Ward", "Appeltans", role = "ctb"), person(, "OBIS", , "support@iobis.org", role = "cph") )
-# Depends: R (>= 3.2.2)
-# License: MIT + file LICENSE
-# Encoding: UTF-8
-# LazyData: true
-# Imports: cowplot, data.tree, digest, dplyr, geosphere, ggplot2, httr, jsonlite, leaflet, raster, rgdal, rgeos, rmarkdown, sf, sp, stringr, tidyr, worrms, xml2, rappdirs, maps, knitr
-# Suggests: testthat, finch, grid
-# RoxygenNote: 6.1.1
